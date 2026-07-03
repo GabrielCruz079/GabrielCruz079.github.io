@@ -3,24 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gabriel Ramos Cruz — Analista de Dados</title>
+<title>Gabriel Ramos Cruz — Cientista de Dados</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230c0c0e'/%3E%3Cellipse cx='16' cy='10' rx='10' ry='4' fill='none' stroke='%2300d68f' stroke-width='2'/%3E%3Cpath d='M6 10v6c0 2.2 4.5 4 10 4s10-1.8 10-4v-6' fill='none' stroke='%2300d68f' stroke-width='2'/%3E%3Cpath d='M6 16v6c0 2.2 4.5 4 10 4s10-1.8 10-4v-6' fill='none' stroke='%2300d68f' stroke-width='2'/%3E%3C/svg%3E">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --bg: #0c0c0e;
-    --bg2: #111114;
-    --bg3: #18181c;
-    --border: rgba(255,255,255,0.07);
-    --border2: rgba(255,255,255,0.12);
-    --text: #f0f0f0;
-    --muted: #7a7a8a;
-    --accent: #00d68f;
-    --accent2: #3b8bff;
-    --accent3: #a78bfa;
-    --mono: 'DM Mono', monospace;
-    --display: 'Syne', sans-serif;
+    --bg: #0c0c0e; --bg2: #111114; --bg3: #18181c;
+    --border: rgba(255,255,255,0.07); --border2: rgba(255,255,255,0.12);
+    --text: #f0f0f0; --muted: #7a7a8a;
+    --accent: #00d68f; --accent2: #3b8bff; --accent3: #a78bfa;
+    --mono: 'DM Mono', monospace; --display: 'Syne', sans-serif;
   }
   html { scroll-behavior: smooth; }
   body { background: var(--bg); color: var(--text); font-family: var(--display); line-height: 1.6; overflow-x: hidden; }
@@ -33,10 +26,10 @@
   .nav-photo { width: 62px; height: 62px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent); transition: width 0.4s ease, height 0.4s ease, box-shadow 0.4s ease; box-shadow: 0 0 0 4px rgba(0,214,143,0.15); }
   nav.scrolled .nav-photo { width: 34px; height: 34px; box-shadow: none; }
   .nav-info { display: flex; flex-direction: column; }
-  .nav-name { font-size: 0.88rem; font-weight: 700; letter-spacing: 0.01em; color: var(--text); line-height: 1.2; }
-  .nav-age { font-family: var(--mono); font-size: 0.68rem; color: var(--muted); letter-spacing: 0.05em; }
+  .nav-name { font-size: 0.88rem; font-weight: 700; color: var(--text); line-height: 1.2; }
+  .nav-age { font-family: var(--mono); font-size: 0.68rem; color: var(--muted); }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a { font-family: var(--mono); font-size: 0.78rem; color: var(--muted); text-decoration: none; letter-spacing: 0.05em; transition: color 0.2s; }
+  .nav-links a { font-family: var(--mono); font-size: 0.78rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
   .nav-links a:hover { color: var(--accent); }
   .nav-cta { font-family: var(--mono); font-size: 0.75rem; padding: 0.45rem 1rem; border-radius: 5px; background: var(--accent); color: #000; font-weight: 500; text-decoration: none; transition: all 0.2s; }
   .nav-cta:hover { background: #00f0a0; }
@@ -58,7 +51,7 @@
   .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border2); }
   .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
   .hero-stats { display: flex; gap: 3rem; margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); }
-  .stat-num { font-size: 2rem; font-weight: 800; color: var(--text); }
+  .stat-num { font-size: 2rem; font-weight: 800; }
   .stat-num span { color: var(--accent); }
   .stat-label { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
 
@@ -69,9 +62,19 @@
   h2 { font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; }
   .section-line { flex: 1; height: 1px; background: var(--border); }
 
+  /* SOBRE */
+  #sobre { background: var(--bg); }
+
   /* PROJETOS */
   #projetos { background: var(--bg2); }
   .projects-grid { display: grid; gap: 1.5rem; }
+
+  /* PROJETO DESTAQUE */
+  .project-featured { background: var(--bg3); border: 1px solid rgba(0,214,143,0.25); border-radius: 16px; padding: 2rem; position: relative; overflow: hidden; transition: transform 0.3s, border-color 0.3s; }
+  .project-featured::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3)); }
+  .project-featured:hover { transform: translateY(-4px); border-color: rgba(0,214,143,0.45); }
+  .featured-badge { font-family: var(--mono); font-size: 0.65rem; color: var(--accent); border: 1px solid rgba(0,214,143,0.3); padding: 2px 10px; border-radius: 20px; letter-spacing: 0.1em; text-transform: uppercase; }
+
   .project-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; transition: border-color 0.3s, transform 0.3s; position: relative; overflow: hidden; }
   .project-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent2)); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
   .project-card:hover { border-color: var(--border2); transform: translateY(-4px); }
@@ -80,38 +83,64 @@
   .project-icon { font-size: 1.75rem; }
   .project-link { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); text-decoration: none; border: 1px solid var(--border); padding: 0.3rem 0.75rem; border-radius: 4px; transition: all 0.2s; }
   .project-link:hover { border-color: var(--accent); color: var(--accent); }
-  .project-name { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; letter-spacing: -0.01em; }
+  .project-name { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; }
   .project-desc { font-family: var(--mono); font-size: 0.82rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.25rem; }
   .project-highlights { font-family: var(--mono); font-size: 0.75rem; color: var(--accent); margin-bottom: 1rem; }
   .project-highlights span { color: var(--muted); }
   .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-  .tag { font-family: var(--mono); font-size: 0.7rem; padding: 0.25rem 0.625rem; border-radius: 4px; border: 1px solid var(--border2); color: var(--muted); letter-spacing: 0.03em; }
+  .tag { font-family: var(--mono); font-size: 0.7rem; padding: 0.25rem 0.625rem; border-radius: 4px; border: 1px solid var(--border2); color: var(--muted); }
   .tag.blue { border-color: rgba(59,139,255,0.3); color: #3b8bff; }
   .tag.green { border-color: rgba(0,214,143,0.3); color: var(--accent); }
   .tag.purple { border-color: rgba(167,139,250,0.3); color: var(--accent3); }
+  .tag.amber { border-color: rgba(245,158,11,0.3); color: #f59e0b; }
+
+  /* CHART BTN & MODAL */
+  .chart-btn { font-family: var(--mono); font-size: 0.72rem; padding: 0.35rem 0.875rem; border-radius: 5px; border: 1px solid rgba(0,214,143,0.4); background: rgba(0,214,143,0.08); color: var(--accent); cursor: pointer; transition: all 0.2s; }
+  .chart-btn:hover { background: rgba(0,214,143,0.18); border-color: var(--accent); }
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 999; backdrop-filter: blur(6px); align-items: center; justify-content: center; }
+  .modal-overlay.active { display: flex; }
+  .modal { background: var(--bg3); border: 1px solid var(--border2); border-radius: 16px; padding: 2rem; width: 90%; max-width: 680px; position: relative; animation: modalIn 0.25s ease; }
+  @keyframes modalIn { from { opacity: 0; transform: scale(0.95) translateY(16px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+  .modal-close { position: absolute; top: 1rem; right: 1.25rem; background: none; border: none; color: var(--muted); font-size: 1.25rem; cursor: pointer; transition: color 0.2s; }
+  .modal-close:hover { color: var(--text); }
+  .modal-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.25rem; }
+  .modal-sub { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); margin-bottom: 1.5rem; }
+  .modal-kpis { display: flex; gap: 1rem; margin-top: 1.25rem; flex-wrap: wrap; }
+  .modal-kpi { flex: 1; background: var(--bg2); border-radius: 8px; padding: 0.75rem 1rem; border: 1px solid var(--border); min-width: 120px; }
+  .modal-kpi-val { font-size: 1.25rem; font-weight: 700; color: var(--accent); }
+  .modal-kpi-label { font-family: var(--mono); font-size: 0.68rem; color: var(--muted); margin-top: 2px; }
 
   /* HABILIDADES */
-  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .skills-main { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem; }
   .skill-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; transition: border-color 0.2s; }
   .skill-card:hover { border-color: var(--border2); }
+  .skill-card.full { grid-column: span 2; }
   .skill-icon { font-size: 1.25rem; margin-bottom: 0.75rem; }
-  .skill-cat { font-family: var(--mono); font-size: 0.65rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.5rem; }
+  .skill-cat { font-family: var(--mono); font-size: 0.65rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 4px; }
   .skill-name { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem; }
-  .skill-items { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); line-height: 1.8; }
+  .skill-items { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); line-height: 1.8; margin-bottom: 0.75rem; }
+  .skill-bar-wrap { height: 4px; background: var(--border); border-radius: 2px; }
+  .skill-bar { height: 100%; border-radius: 2px; }
+  .skill-scale { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 0.62rem; color: var(--muted); margin-top: 4px; }
+  .skill-badge { font-family: var(--mono); font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; }
+  .badge-int { border: 1px solid rgba(0,214,143,0.3); color: var(--accent); }
+  .badge-adv { border: 1px solid rgba(167,139,250,0.3); color: var(--accent3); }
+  .skills-extra { display: grid; grid-template-columns: repeat(3,1fr); gap: 0.75rem; }
+  .skill-mini { background: var(--bg3); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; }
 
   /* FORMAÇÃO */
   #formacao { background: var(--bg2); }
   .edu-list { display: grid; gap: 1rem; }
-  .edu-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem 2rem; display: flex; gap: 2rem; align-items: flex-start; transition: border-color 0.2s; }
+  .edu-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem 2rem; display: flex; gap: 2rem; transition: border-color 0.2s; }
   .edu-card:hover { border-color: var(--border2); }
-  .edu-year { font-family: var(--mono); font-size: 0.72rem; color: var(--accent); min-width: 90px; padding-top: 3px; letter-spacing: 0.05em; }
+  .edu-year { font-family: var(--mono); font-size: 0.72rem; color: var(--accent); min-width: 90px; padding-top: 3px; }
   .edu-title { font-size: 1rem; font-weight: 700; margin-bottom: 0.25rem; }
   .edu-place { font-family: var(--mono); font-size: 0.78rem; color: var(--muted); margin-bottom: 0.5rem; }
   .edu-desc { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); line-height: 1.7; }
 
   /* CONTATO */
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
-  .contact-text h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; letter-spacing: -0.02em; }
+  .contact-text h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; }
   .contact-text p { font-family: var(--mono); font-size: 0.82rem; color: var(--muted); line-height: 1.8; margin-bottom: 1.5rem; }
   .contact-links { display: flex; flex-direction: column; gap: 0.75rem; }
   .contact-link { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.25rem; background: var(--bg3); border: 1px solid var(--border); border-radius: 8px; text-decoration: none; transition: all 0.2s; }
@@ -119,53 +148,26 @@
   .contact-link-icon { font-size: 1.1rem; }
   .contact-link-label { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
   .contact-link-val { font-size: 0.88rem; font-weight: 600; color: var(--text); }
-  .contact-link-arrow { margin-left: auto; color: var(--muted); font-size: 1rem; transition: color 0.2s; }
+  .contact-link-arrow { margin-left: auto; color: var(--muted); transition: color 0.2s; }
   .contact-link:hover .contact-link-arrow { color: var(--accent); }
 
-  /* FOOTER */
   footer { border-top: 1px solid var(--border); padding: 2rem 4rem; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1; }
   footer p { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); }
   footer span { color: var(--accent); }
 
-  /* ANIMATIONS */
   @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
   .fade-up { opacity: 0; animation: fadeUp 0.6s ease forwards; }
-  .delay-1 { animation-delay: 0.1s; }
-  .delay-2 { animation-delay: 0.2s; }
-  .delay-3 { animation-delay: 0.3s; }
-  .delay-4 { animation-delay: 0.4s; }
+  .delay-1 { animation-delay: 0.1s; } .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.3s; } .delay-4 { animation-delay: 0.4s; }
 
-  /* CHART BUTTON */
-  .chart-btn { font-family: var(--mono); font-size: 0.72rem; padding: 0.35rem 0.875rem; border-radius: 5px; border: 1px solid rgba(0,214,143,0.4); background: rgba(0,214,143,0.08); color: var(--accent); cursor: pointer; transition: all 0.2s; letter-spacing: 0.03em; }
-  .chart-btn:hover { background: rgba(0,214,143,0.18); border-color: var(--accent); }
-
-  /* MODAL */
-  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 999; backdrop-filter: blur(6px); align-items: center; justify-content: center; }
-  .modal-overlay.active { display: flex; }
-  .modal { background: var(--bg3); border: 1px solid var(--border2); border-radius: 16px; padding: 2rem; width: 90%; max-width: 680px; position: relative; animation: modalIn 0.25s ease; }
-  @keyframes modalIn { from { opacity: 0; transform: scale(0.95) translateY(16px); } to { opacity: 1; transform: scale(1) translateY(0); } }
-  .modal-close { position: absolute; top: 1rem; right: 1.25rem; background: none; border: none; color: var(--muted); font-size: 1.25rem; cursor: pointer; transition: color 0.2s; line-height: 1; }
-  .modal-close:hover { color: var(--text); }
-  .modal-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.25rem; }
-  .modal-sub { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); margin-bottom: 1.5rem; }
-  .modal canvas { width: 100% !important; }
-  .modal-kpis { display: flex; gap: 1rem; margin-top: 1.25rem; }
-  .modal-kpi { flex: 1; background: var(--bg2); border-radius: 8px; padding: 0.75rem 1rem; border: 1px solid var(--border); }
-  .modal-kpi-val { font-size: 1.25rem; font-weight: 700; color: var(--accent); }
-  .modal-kpi-label { font-family: var(--mono); font-size: 0.68rem; color: var(--muted); margin-top: 2px; }
-
-  /* RESPONSIVE */
   @media (max-width: 768px) {
-    nav { padding: 0.75rem 1.25rem; }
-    .nav-links { display: none; }
-    .nav-cta { display: none; }
-    #hero { padding: 7rem 1.5rem 3rem; }
-    .section-wrap { padding: 4rem 1.5rem; }
-    .skills-grid { grid-template-columns: 1fr 1fr; }
+    nav { padding: 0.75rem 1.25rem; } .nav-links { display: none; } .nav-cta { display: none; }
+    #hero { padding: 7rem 1.5rem 3rem; } .section-wrap { padding: 4rem 1.5rem; }
+    .skills-main { grid-template-columns: 1fr; } .skill-card.full { grid-column: span 1; }
+    .skills-extra { grid-template-columns: 1fr 1fr; }
     .contact-grid { grid-template-columns: 1fr; }
-    .hero-stats { gap: 1.5rem; }
+    .hero-stats { gap: 1.5rem; } .edu-card { flex-direction: column; gap: 0.5rem; }
     footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.5rem; }
-    .edu-card { flex-direction: column; gap: 0.5rem; }
     .modal-kpis { flex-direction: column; }
   }
 </style>
@@ -177,7 +179,7 @@
     <img src="data:image/jpeg;base64,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" alt="Gabriel Ramos Cruz" class="nav-photo">
     <div class="nav-info">
       <span class="nav-name">Gabriel Ramos Cruz</span>
-      <span class="nav-age">22 anos · Analista de Dados</span>
+      <span class="nav-age">22 anos · Cientista de Dados em Formação</span>
     </div>
   </div>
   <ul class="nav-links">
@@ -187,14 +189,14 @@
     <li><a href="#formacao">// formação</a></li>
     <li><a href="#contato">// contato</a></li>
   </ul>
-  <a href="https://wa.me/5511996097419" class="nav-cta">Contato</a>
+  <a href="mailto:gabriel.ramos.cruz079@gmail.com" class="nav-cta">Contato</a>
 </nav>
 
 <!-- HERO -->
 <section id="hero">
   <div class="hero-glow"></div>
   <div class="hero-inner">
-    <div class="hero-tag fade-up">Analista de Dados · Arujá, SP</div>
+    <div class="hero-tag fade-up">Cientista de Dados em Formação · Arujá, SP</div>
     <h1 class="fade-up delay-1">Gabriel<br>Ramos<br><span class="highlight">Cruz.</span></h1>
     <p class="hero-desc fade-up delay-2">
       Experiência prática em Python, SQL, Excel e Power BI — da limpeza e modelagem<br>
@@ -220,16 +222,16 @@
       <h2>Sobre</h2>
       <div class="section-line"></div>
     </div>
-    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start;">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:start;">
       <div>
         <p style="font-family:var(--mono); font-size:0.85rem; color:var(--muted); line-height:1.9; margin-bottom:1.25rem;">
-          Estudante de Ciência da Computação com foco em <span style="color:var(--accent);">Análise de Dados, Business Intelligence e automação de processos</span>. Possuo experiência prática no desenvolvimento de projetos utilizando Python, SQL, Excel e Power BI, aplicando técnicas de limpeza, tratamento, modelagem e visualização de dados para geração de insights e apoio à tomada de decisão.
+          Analista de Dados em formação, com experiência prática em <span style="color:var(--accent);">Python, SQL, Excel e Power BI</span> aplicados ao ciclo completo de dados — da extração e limpeza à modelagem, visualização e geração de insights para apoio à tomada de decisão.
         </p>
         <p style="font-family:var(--mono); font-size:0.85rem; color:var(--muted); line-height:1.9; margin-bottom:1.25rem;">
-          Desenvolvi quatro projetos publicados no GitHub envolvendo análise exploratória, dashboards interativos, consultas SQL, manipulação com Pandas e desenvolvimento de KPIs estratégicos. Tenho conhecimento em ETL, organização de bases de dados, visualização analítica e storytelling com dados.
+          Desenvolvi projetos publicados no GitHub abrangendo análise exploratória, dashboards interativos, consultas SQL avançadas e indicadores estratégicos (KPIs). Atuo com ETL, organização de bases de dados e storytelling com dados orientado a negócio.
         </p>
         <p style="font-family:var(--mono); font-size:0.85rem; color:var(--muted); line-height:1.9;">
-          Além da formação acadêmica, atuei em rotinas administrativas e controle de informações, fortalecendo habilidades analíticas, organização de dados e suporte operacional orientado por dados.
+          Com vivência em rotinas administrativas e controle de informações, desenvolvi visão analítica aplicada à estruturação de processos e suporte operacional baseado em dados.
         </p>
       </div>
       <div style="display:flex; flex-direction:column; gap:0.75rem;">
@@ -241,12 +243,8 @@
         <div style="background:var(--bg3); border:1px solid var(--border); border-radius:10px; padding:1.25rem 1.5rem;">
           <div style="font-family:var(--mono); font-size:0.65rem; color:var(--accent); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:0.75rem;">Competências chave</div>
           <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
-            <span style="font-family:var(--mono); font-size:0.72rem; padding:3px 10px; border-radius:4px; border:1px solid rgba(0,214,143,0.3); color:var(--accent);">ETL</span>
-            <span style="font-family:var(--mono); font-size:0.72rem; padding:3px 10px; border-radius:4px; border:1px solid rgba(59,139,255,0.3); color:#3b8bff;">EDA</span>
-            <span style="font-family:var(--mono); font-size:0.72rem; padding:3px 10px; border-radius:4px; border:1px solid rgba(167,139,250,0.3); color:var(--accent3);">KPIs</span>
-            <span style="font-family:var(--mono); font-size:0.72rem; padding:3px 10px; border-radius:4px; border:1px solid rgba(0,214,143,0.3); color:var(--accent);">Storytelling</span>
-            <span style="font-family:var(--mono); font-size:0.72rem; padding:3px 10px; border-radius:4px; border:1px solid rgba(59,139,255,0.3); color:#3b8bff;">Dashboards</span>
-            <span style="font-family:var(--mono); font-size:0.72rem; padding:3px 10px; border-radius:4px; border:1px solid rgba(167,139,250,0.3); color:var(--accent3);">Modelagem</span>
+            <span class="tag green">ETL</span><span class="tag blue">EDA</span><span class="tag purple">KPIs</span>
+            <span class="tag green">Storytelling</span><span class="tag blue">Dashboards</span><span class="tag purple">Modelagem</span>
           </div>
         </div>
       </div>
@@ -263,6 +261,65 @@
       <div class="section-line"></div>
     </div>
     <div class="projects-grid">
+
+      <!-- PROJETO DESTAQUE: SAÚDE VACINAL -->
+      <div class="project-featured">
+        <div class="project-top">
+          <div style="display:flex; align-items:center; gap:0.75rem;">
+            <span class="project-icon">💉</span>
+            <span class="featured-badge">✦ Destaque</span>
+          </div>
+          <a href="https://github.com/GabrielCruz079/saude-vacinal-brasil" target="_blank" class="project-link">↗ GitHub</a>
+        </div>
+        <div class="project-name" style="font-size:1.3rem;">Análise de Saúde Vacinal — Brasil (2015–2023)</div>
+        <div class="project-desc">Projeto de análise de dados de saúde pública com dados reais do governo brasileiro. Pipeline completo: banco MySQL com 4 tabelas, tratamento em Python com geração automática de 5 gráficos analíticos e dashboard interativo com mapa geográfico no Power BI. Identifica queda crítica de cobertura vacinal — de 96% em 2015 para 71,5% em 2023 — e correlação direta com surto de sarampo em 2019.</div>
+        <div class="project-highlights">→ <span>Destaques:</span> dados reais do governo · mapa interativo · correlação sarampo × vacinação · meta OMS como referência</div>
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; margin-top:0.75rem;">
+          <div class="tags">
+            <span class="tag green">Python</span><span class="tag blue">MySQL</span>
+            <span class="tag purple">Power BI</span><span class="tag amber">Matplotlib</span><span class="tag">Pandas</span>
+          </div>
+          <button class="chart-btn" onclick="openModal('vacinal')">📊 Ver insights</button>
+        </div>
+      </div>
+
+      <!-- PROJETO: RH ANALYTICS -->
+      <div class="project-card">
+        <div class="project-top">
+          <span class="project-icon">👥</span>
+          <a href="https://github.com/GabrielCruz079/analise-rh-turnover" target="_blank" class="project-link">↗ GitHub</a>
+        </div>
+        <div class="project-name">RH Analytics — Análise de Turnover</div>
+        <div class="project-desc">Pipeline completo de análise de RH com dados sintéticos gerados em Python. Banco MySQL com 4 tabelas normalizadas, 7 gráficos gerados automaticamente, exportação para Excel formatado com 4 abas e dashboard executivo no Power BI com tema escuro. Taxa de turnover de 22,6% com custo estimado de R$ 1,2M.</div>
+        <div class="project-highlights">→ <span>Destaques:</span> geração de dados sintéticos · 7 gráficos automáticos · custo de turnover · perfil do desligado</div>
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; margin-top:0.75rem;">
+          <div class="tags">
+            <span class="tag green">Python</span><span class="tag blue">MySQL</span>
+            <span class="tag purple">Power BI</span><span class="tag amber">Excel</span><span class="tag">Pandas</span>
+          </div>
+          <button class="chart-btn" onclick="openModal('rh')">📊 Ver insights</button>
+        </div>
+      </div>
+
+      <!-- PROJETO: ANÁLISE DE VENDAS -->
+      <div class="project-card">
+        <div class="project-top">
+          <span class="project-icon">🛒</span>
+          <a href="https://github.com/GabrielCruz079/analise-vendas-python-sql-powerbi" target="_blank" class="project-link">↗ GitHub</a>
+        </div>
+        <div class="project-name">Análise de Vendas — Python · SQL · Power BI</div>
+        <div class="project-desc">EDA completa de dados de vendas integrando Python, MySQL e Power BI. Identifica padrões de demanda, sazonalidade e desempenho por produto e período. Faturamento total de R$ 71K com margem líquida de R$ 30K. Dashboard interativo com filtros dinâmicos e indicadores financeiros segmentados.</div>
+        <div class="project-highlights">→ <span>Destaques:</span> pipeline ETL completo · R$ 71K faturamento · dashboard Power BI · sazonalidade</div>
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; margin-top:0.75rem;">
+          <div class="tags">
+            <span class="tag green">Python</span><span class="tag blue">SQL</span>
+            <span class="tag purple">Power BI</span><span class="tag amber">Excel</span><span class="tag">EDA</span>
+          </div>
+          <button class="chart-btn" onclick="openModal('vendas')">📊 Ver insights</button>
+        </div>
+      </div>
+
+      <!-- PROJETO: ESTOQUE -->
       <div class="project-card">
         <div class="project-top">
           <span class="project-icon">📦</span>
@@ -270,53 +327,16 @@
         </div>
         <div class="project-name">Análise de Estoque — Python</div>
         <div class="project-desc">Análise de desempenho financeiro de portfólio de produtos com foco em lucro, margem e volume de vendas. Identifica os itens de maior e menor contribuição para o resultado, estruturando visualizações que facilitam decisões de precificação e mix de produtos.</div>
-        <div class="project-highlights">→ <span>Destaques:</span> limpeza de dados · análise de rentabilidade · KPIs financeiros</div>
-        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
+        <div class="project-highlights">→ <span>Destaques:</span> limpeza de dados · análise de rentabilidade · KPIs financeiros · mix de produtos</div>
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; margin-top:0.75rem;">
           <div class="tags">
-            <span class="tag green">Python</span>
-            <span class="tag blue">Excel</span>
-            <span class="tag purple">Power BI</span>
-            <span class="tag">EDA</span>
+            <span class="tag green">Python</span><span class="tag blue">Excel</span>
+            <span class="tag purple">Power BI</span><span class="tag">EDA</span>
           </div>
-          <button class="chart-btn" onclick="openModal('estoque')">📊 Ver gráfico</button>
+          <button class="chart-btn" onclick="openModal('estoque')">📊 Ver insights</button>
         </div>
       </div>
-      <div class="project-card">
-        <div class="project-top">
-          <span class="project-icon">🛒</span>
-          <a href="https://github.com/GabrielCruz079/Projeto-vendas" target="_blank" class="project-link">↗ GitHub</a>
-        </div>
-        <div class="project-name">Análise de Vendas</div>
-        <div class="project-desc">Análise exploratória completa de dados de vendas para identificar padrões de demanda, sazonalidade e comportamento por produto e período. Geração de indicadores de controle de estoque com painel interativo e filtros dinâmicos em Power BI.</div>
-        <div class="project-highlights">→ <span>Destaques:</span> pipeline ETL · painel Power BI · identificação de sazonalidade</div>
-        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
-          <div class="tags">
-            <span class="tag green">Python</span>
-            <span class="tag blue">Excel</span>
-            <span class="tag purple">Power BI</span>
-            <span class="tag">ETL</span>
-          </div>
-          <button class="chart-btn" onclick="openModal('vendas')">📊 Ver gráfico</button>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-top">
-          <span class="project-icon">🔍</span>
-          <a href="https://github.com/GabrielCruz079/portfolio-analise-dados" target="_blank" class="project-link">↗ GitHub</a>
-        </div>
-        <div class="project-name">Portfólio de Análise de Dados</div>
-        <div class="project-desc">Repositório integrado com extração via SQL, tratamento com Python e visualização em Power BI. Consultas com JOINs, agregações e subconsultas para geração de insights segmentados, entregando painel executivo com indicadores de desempenho.</div>
-        <div class="project-highlights">→ <span>Destaques:</span> modelagem relacional · narrativa com dados · KPIs por segmento</div>
-        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
-          <div class="tags">
-            <span class="tag blue">SQL</span>
-            <span class="tag green">Python</span>
-            <span class="tag purple">Power BI</span>
-            <span class="tag blue">Excel</span>
-          </div>
-          <button class="chart-btn" onclick="openModal('portfolio')">📊 Ver gráfico</button>
-        </div>
-      </div>
+
     </div>
   </div>
 </section>
@@ -329,121 +349,60 @@
       <h2>Habilidades</h2>
       <div class="section-line"></div>
     </div>
-
-    <!-- FERRAMENTAS PRINCIPAIS -->
     <div style="font-family:var(--mono); font-size:0.65rem; color:var(--accent); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:1.25rem;">Ferramentas principais</div>
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:2rem;">
-
+    <div class="skills-main">
       <div class="skill-card">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
-          <div style="display:flex; align-items:center; gap:0.5rem;">
-            <span style="font-size:1.1rem;">📊</span>
-            <div>
-              <div class="skill-name" style="margin:0; font-size:0.95rem;">Power BI</div>
-              <div class="skill-cat" style="margin:0;">BI & Visualização</div>
-            </div>
-          </div>
-          <span style="font-family:var(--mono); font-size:0.7rem; color:var(--accent); border:1px solid rgba(0,214,143,0.3); padding:2px 8px; border-radius:4px;">Intermediário</span>
+          <div style="display:flex; align-items:center; gap:0.5rem;"><span style="font-size:1.1rem;">📊</span><div><div class="skill-name" style="margin:0;">Power BI</div><div class="skill-cat" style="margin:0;">BI & Visualização</div></div></div>
+          <span class="skill-badge badge-int">Intermediário</span>
         </div>
-        <div style="font-family:var(--mono); font-size:0.75rem; color:var(--muted); line-height:1.7; margin-bottom:0.75rem;">
-          Dashboards completos com KPIs, segmentações dinâmicas e filtros interativos. Modelagem de dados e relacionamentos entre tabelas.
-        </div>
-        <div style="height:4px; background:var(--border); border-radius:2px;">
-          <div style="width:65%; height:100%; background:linear-gradient(90deg,var(--accent),var(--accent2)); border-radius:2px; transition:width 1s ease;" class="skill-bar"></div>
-        </div>
-        <div style="display:flex; justify-content:space-between; font-family:var(--mono); font-size:0.65rem; color:var(--muted); margin-top:4px;"><span>Básico</span><span>Intermediário ✓</span><span>Avançado</span></div>
+        <div class="skill-items">Dashboards completos com KPIs, segmentações dinâmicas e filtros interativos. Modelagem de dados e relacionamentos entre tabelas. DAX para medidas calculadas.</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" style="width:65%; background:linear-gradient(90deg,var(--accent),var(--accent2));"></div></div>
+        <div class="skill-scale"><span>Básico</span><span>Intermediário ✓</span><span>Avançado</span></div>
       </div>
-
       <div class="skill-card">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
-          <div style="display:flex; align-items:center; gap:0.5rem;">
-            <span style="font-size:1.1rem;">🐍</span>
-            <div>
-              <div class="skill-name" style="margin:0; font-size:0.95rem;">Python</div>
-              <div class="skill-cat" style="margin:0;">Análise de Dados</div>
-            </div>
-          </div>
-          <span style="font-family:var(--mono); font-size:0.7rem; color:var(--accent); border:1px solid rgba(0,214,143,0.3); padding:2px 8px; border-radius:4px;">Intermediário</span>
+          <div style="display:flex; align-items:center; gap:0.5rem;"><span style="font-size:1.1rem;">🐍</span><div><div class="skill-name" style="margin:0;">Python</div><div class="skill-cat" style="margin:0;">Análise de Dados</div></div></div>
+          <span class="skill-badge badge-int">Intermediário</span>
         </div>
-        <div style="font-family:var(--mono); font-size:0.75rem; color:var(--muted); line-height:1.7; margin-bottom:0.75rem;">
-          EDA completa, limpeza e tratamento de dados com Pandas e NumPy. Visualizações com Matplotlib e Seaborn aplicadas a projetos reais.
-        </div>
-        <div style="height:4px; background:var(--border); border-radius:2px;">
-          <div style="width:65%; height:100%; background:linear-gradient(90deg,var(--accent),var(--accent2)); border-radius:2px;" class="skill-bar"></div>
-        </div>
-        <div style="display:flex; justify-content:space-between; font-family:var(--mono); font-size:0.65rem; color:var(--muted); margin-top:4px;"><span>Básico</span><span>Intermediário ✓</span><span>Avançado</span></div>
+        <div class="skill-items">EDA completa, limpeza e tratamento de dados com Pandas e NumPy. Geração automática de visualizações com Matplotlib e Seaborn. Scripts de automação.</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" style="width:65%; background:linear-gradient(90deg,var(--accent),var(--accent2));"></div></div>
+        <div class="skill-scale"><span>Básico</span><span>Intermediário ✓</span><span>Avançado</span></div>
       </div>
-
       <div class="skill-card">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
-          <div style="display:flex; align-items:center; gap:0.5rem;">
-            <span style="font-size:1.1rem;">📗</span>
-            <div>
-              <div class="skill-name" style="margin:0; font-size:0.95rem;">Excel</div>
-              <div class="skill-cat" style="margin:0;">Análise & Relatórios</div>
-            </div>
-          </div>
-          <span style="font-family:var(--mono); font-size:0.7rem; color:var(--accent); border:1px solid rgba(0,214,143,0.3); padding:2px 8px; border-radius:4px;">Intermediário</span>
+          <div style="display:flex; align-items:center; gap:0.5rem;"><span style="font-size:1.1rem;">📗</span><div><div class="skill-name" style="margin:0;">Excel</div><div class="skill-cat" style="margin:0;">Análise & Relatórios</div></div></div>
+          <span class="skill-badge badge-int">Intermediário</span>
         </div>
-        <div style="font-family:var(--mono); font-size:0.75rem; color:var(--muted); line-height:1.7; margin-bottom:0.75rem;">
-          Tabelas dinâmicas, fórmulas avançadas (PROCV, SE, SOMASE, ÍNDICE). Construção de relatórios analíticos e controle de KPIs operacionais.
-        </div>
-        <div style="height:4px; background:var(--border); border-radius:2px;">
-          <div style="width:65%; height:100%; background:linear-gradient(90deg,var(--accent),var(--accent2)); border-radius:2px;" class="skill-bar"></div>
-        </div>
-        <div style="display:flex; justify-content:space-between; font-family:var(--mono); font-size:0.65rem; color:var(--muted); margin-top:4px;"><span>Básico</span><span>Intermediário ✓</span><span>Avançado</span></div>
+        <div class="skill-items">Tabelas dinâmicas, fórmulas avançadas (PROCV, SE, SOMASE, ÍNDICE). Construção de relatórios analíticos e controle de KPIs operacionais.</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" style="width:65%; background:linear-gradient(90deg,var(--accent),var(--accent2));"></div></div>
+        <div class="skill-scale"><span>Básico</span><span>Intermediário ✓</span><span>Avançado</span></div>
       </div>
-
       <div class="skill-card">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
-          <div style="display:flex; align-items:center; gap:0.5rem;">
-            <span style="font-size:1.1rem;">🗄️</span>
-            <div>
-              <div class="skill-name" style="margin:0; font-size:0.95rem;">SQL</div>
-              <div class="skill-cat" style="margin:0;">Banco de Dados</div>
-            </div>
-          </div>
-          <span style="font-family:var(--mono); font-size:0.7rem; color:var(--accent); border:1px solid rgba(0,214,143,0.3); padding:2px 8px; border-radius:4px;">Intermediário</span>
+          <div style="display:flex; align-items:center; gap:0.5rem;"><span style="font-size:1.1rem;">🗄️</span><div><div class="skill-name" style="margin:0;">SQL</div><div class="skill-cat" style="margin:0;">Banco de Dados</div></div></div>
+          <span class="skill-badge badge-int">Intermediário</span>
         </div>
-        <div style="font-family:var(--mono); font-size:0.75rem; color:var(--muted); line-height:1.7; margin-bottom:0.75rem;">
-          Consultas com JOINs, GROUP BY, subconsultas e agregações. Extração e modelagem de dados relacionais para análise segmentada.
-        </div>
-        <div style="height:4px; background:var(--border); border-radius:2px;">
-          <div style="width:65%; height:100%; background:linear-gradient(90deg,var(--accent),var(--accent2)); border-radius:2px;" class="skill-bar"></div>
-        </div>
-        <div style="display:flex; justify-content:space-between; font-family:var(--mono); font-size:0.65rem; color:var(--muted); margin-top:4px;"><span>Básico</span><span>Intermediário ✓</span><span>Avançado</span></div>
+        <div class="skill-items">Consultas com JOINs, GROUP BY, subconsultas e agregações. Extração e modelagem de dados relacionais para análise segmentada.</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" style="width:65%; background:linear-gradient(90deg,var(--accent),var(--accent2));"></div></div>
+        <div class="skill-scale"><span>Básico</span><span>Intermediário ✓</span><span>Avançado</span></div>
       </div>
-
-      <div class="skill-card" style="grid-column: span 2;">
+      <div class="skill-card full">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
-          <div style="display:flex; align-items:center; gap:0.5rem;">
-            <span style="font-size:1.1rem;">🎯</span>
-            <div>
-              <div class="skill-name" style="margin:0; font-size:0.95rem;">PowerPoint</div>
-              <div class="skill-cat" style="margin:0;">Apresentações & Storytelling</div>
-            </div>
-          </div>
-          <span style="font-family:var(--mono); font-size:0.7rem; color:var(--accent3); border:1px solid rgba(167,139,250,0.3); padding:2px 8px; border-radius:4px;">Avançado</span>
+          <div style="display:flex; align-items:center; gap:0.5rem;"><span style="font-size:1.1rem;">🎯</span><div><div class="skill-name" style="margin:0;">PowerPoint</div><div class="skill-cat" style="margin:0;">Apresentações & Storytelling</div></div></div>
+          <span class="skill-badge badge-adv">Avançado</span>
         </div>
-        <div style="font-family:var(--mono); font-size:0.75rem; color:var(--muted); line-height:1.7; margin-bottom:0.75rem;">
-          Apresentações executivas com animações, storytelling com dados e design orientado a negócio. Capacidade de traduzir análises técnicas em narrativas visuais claras para diferentes públicos.
-        </div>
-        <div style="height:4px; background:var(--border); border-radius:2px;">
-          <div style="width:85%; height:100%; background:linear-gradient(90deg,var(--accent3),var(--accent2)); border-radius:2px;" class="skill-bar"></div>
-        </div>
-        <div style="display:flex; justify-content:space-between; font-family:var(--mono); font-size:0.65rem; color:var(--muted); margin-top:4px;"><span>Básico</span><span>Intermediário</span><span>Avançado ✓</span></div>
+        <div class="skill-items">Apresentações executivas com animações, storytelling com dados e design orientado a negócio. Capacidade de traduzir análises técnicas em narrativas visuais claras para diferentes públicos.</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%; background:linear-gradient(90deg,var(--accent3),var(--accent2));"></div></div>
+        <div class="skill-scale"><span>Básico</span><span>Intermediário</span><span>Avançado ✓</span></div>
       </div>
-
     </div>
-
-    <!-- COMPETÊNCIAS COMPLEMENTARES -->
     <div style="font-family:var(--mono); font-size:0.65rem; color:var(--accent); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:1rem;">Competências complementares</div>
-    <div class="skills-grid">
-      <div class="skill-card"><div class="skill-icon">📚</div><div class="skill-cat">Bibliotecas Python</div><div class="skill-name">Ecossistema</div><div class="skill-items">Pandas · NumPy<br>Matplotlib · Seaborn<br>Jupyter Notebook</div></div>
-      <div class="skill-card"><div class="skill-icon">🔄</div><div class="skill-cat">Dados</div><div class="skill-name">Pipeline</div><div class="skill-items">ETL · EDA<br>Limpeza de dados<br>Modelagem relacional</div></div>
-      <div class="skill-card"><div class="skill-icon">🛠️</div><div class="skill-cat">Ferramentas Dev</div><div class="skill-name">Ambiente</div><div class="skill-items">Git & GitHub<br>VS Code<br>Google Colab</div></div>
+    <div class="skills-extra">
+      <div class="skill-mini"><div class="skill-cat">Bibliotecas Python</div><div class="skill-items" style="margin:0;">Pandas · NumPy<br>Matplotlib · Seaborn</div></div>
+      <div class="skill-mini"><div class="skill-cat">Pipeline de Dados</div><div class="skill-items" style="margin:0;">ETL · EDA<br>Modelagem relacional</div></div>
+      <div class="skill-mini"><div class="skill-cat">Ferramentas Dev</div><div class="skill-items" style="margin:0;">Git · GitHub<br>VS Code · Colab</div></div>
     </div>
-
   </div>
 </section>
 
@@ -458,12 +417,11 @@
     <div class="edu-list">
       <div class="edu-card">
         <div class="edu-year">Em andamento</div>
-        <div>
-          <div class="edu-title">Bacharelado em Ciência da Computação</div>
-          <div class="edu-place">Universidade Cruzeiro do Sul — Guarulhos, SP</div>
-          <div class="edu-desc">Algoritmos · Banco de Dados · Estrutura de Dados · Inteligência Artificial · Estatística Aplicada</div>
-        </div>
+        <div><div class="edu-title">Bacharelado em Ciência da Computação</div><div class="edu-place">Universidade Cruzeiro do Sul — Guarulhos, SP</div><div class="edu-desc">Algoritmos · Banco de Dados · Estrutura de Dados · Inteligência Artificial · Estatística Aplicada</div></div>
       </div>
+      <div class="edu-card">
+        <div class="edu-year">Concluído</div>
+        <div><div class="edu-title">Tecnólogo em Análise e Desenvolvimento de Sistemas</div><div class="edu-place">ENIAC — Guarulhos, SP</div><div class="edu-desc">Foco em SQL, Python e fundamentos de desenvolvimento de sistemas</div></div>
       </div>
     </div>
   </div>
@@ -481,7 +439,7 @@
       <div class="contact-text">
         <h3>Vamos trabalhar juntos?</h3>
         <p>Estou aberto a estágios e oportunidades em Análise de Dados e Business Intelligence. Se tiver um projeto interessante ou uma vaga, me manda uma mensagem.</p>
-        <a href="mailto:gabriel.ramos.cruz079@gmail.com" class="btn btn-primary" style="display:inline-block;">Enviar e-mail ↗</a>
+        <a href="https://mail.google.com/mail/?view=cm&to=gabriel.ramos.cruz079@gmail.com&su=Oportunidade de Estágio" target="_blank" class="btn btn-primary" style="display:inline-block;">Enviar e-mail ↗</a>
       </div>
       <div class="contact-links">
         <a href="https://github.com/GabrielCruz079" target="_blank" class="contact-link">
@@ -489,9 +447,19 @@
           <div><div class="contact-link-label">GitHub</div><div class="contact-link-val">GabrielCruz079</div></div>
           <span class="contact-link-arrow">→</span>
         </a>
-        <a href="mailto:gabriel.ramos.cruz079@gmail.com" class="contact-link">
+        <a href="https://linkedin.com/in/gabriel-ramos-50a081357" target="_blank" class="contact-link">
+          <span class="contact-link-icon">💼</span>
+          <div><div class="contact-link-label">LinkedIn</div><div class="contact-link-val">gabriel-ramos-50a081357</div></div>
+          <span class="contact-link-arrow">→</span>
+        </a>
+        <a href="https://mail.google.com/mail/?view=cm&to=gabriel.ramos.cruz079@gmail.com" target="_blank" class="contact-link">
           <span class="contact-link-icon">📧</span>
           <div><div class="contact-link-label">E-mail</div><div class="contact-link-val">gabriel.ramos.cruz079@gmail.com</div></div>
+          <span class="contact-link-arrow">→</span>
+        </a>
+        <a href="https://wa.me/5511996097419?text=Olá Gabriel, vi seu portfólio!" target="_blank" class="contact-link">
+          <span class="contact-link-icon">💬</span>
+          <div><div class="contact-link-label">WhatsApp</div><div class="contact-link-val">(11) 99609-7419</div></div>
           <span class="contact-link-arrow">→</span>
         </a>
         <div class="contact-link" style="cursor:default;">
@@ -515,7 +483,7 @@
 </div>
 
 <footer>
-  <p>© 2026 <span>Gabriel Ramos Cruz</span> — Analista de Dados</p>
+  <p>© 2026 <span>Gabriel Ramos Cruz</span> — Cientista de Dados em Formação</p>
   <p>Feito com <span>♥</span> e muito Python</p>
 </footer>
 
@@ -523,93 +491,66 @@
 <script>
   /* NAV SCROLL */
   const nav = document.querySelector('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 60);
-  });
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); });
 
   /* CHART DEFAULTS */
   Chart.defaults.color = '#7a7a8a';
   Chart.defaults.font.family = "'DM Mono', monospace";
   Chart.defaults.font.size = 11;
-
   let activeChart = null;
 
   const projects = {
-    estoque: {
-      title: '📦 Análise de Estoque — Python',
-      sub: 'KPIs financeiros por categoria de produto',
-      kpis: [
-        { val: 'R$ 248K', label: 'Receita Total' },
-        { val: '34.2%', label: 'Margem Média' },
-        { val: '12', label: 'Categorias Analisadas' }
-      ],
+    vacinal: {
+      title: '💉 Saúde Vacinal — Brasil (2015–2023)',
+      sub: 'Cobertura vacinal média por região ao longo dos anos',
+      kpis: [{ val: '96%', label: 'Cobertura 2015' }, { val: '71,5%', label: 'Cobertura 2023' }, { val: '-24,5pp', label: 'Queda Total' }],
       data: {
-        labels: ['Eletrônicos', 'Vestuário', 'Alimentos', 'Móveis', 'Cosméticos', 'Ferramentas'],
+        labels: ['2015','2016','2017','2018','2019','2020','2021','2022','2023'],
         datasets: [
-          {
-            label: 'Lucro (R$ mil)',
-            data: [42, 28, 19, 35, 23, 16],
-            backgroundColor: 'rgba(0,214,143,0.75)',
-            borderRadius: 6,
-            borderSkipped: false,
-          },
-          {
-            label: 'Custo (R$ mil)',
-            data: [31, 22, 14, 28, 17, 12],
-            backgroundColor: 'rgba(59,139,255,0.55)',
-            borderRadius: 6,
-            borderSkipped: false,
-          }
+          { label: 'Sul', data: [96,91,85,80,74,70,72,74,76], borderColor: '#00d68f', backgroundColor: 'rgba(0,214,143,0.1)', tension: 0.4, fill: true },
+          { label: 'Sudeste', data: [95,89,84,79,74,70,71,73,76], borderColor: '#3b8bff', backgroundColor: 'rgba(59,139,255,0.1)', tension: 0.4, fill: true },
+          { label: 'Norte', data: [95,88,80,71,64,60,61,63,65], borderColor: '#ef4444', backgroundColor: 'rgba(239,68,68,0.1)', tension: 0.4, fill: true },
         ]
-      }
+      },
+      type: 'line'
+    },
+    rh: {
+      title: '👥 RH Analytics — Turnover',
+      sub: 'Taxa de turnover por departamento (%)',
+      kpis: [{ val: '22,6%', label: 'Turnover Geral' }, { val: '113', label: 'Desligamentos' }, { val: 'R$ 340K', label: 'Custo Tecnologia' }],
+      data: {
+        labels: ['Financeiro','Comercial','Tecnologia','Marketing','Operações','Jurídico','Atendimento','RH'],
+        datasets: [{ label: 'Turnover (%)', data: [30.3, 29.4, 27.8, 25.6, 18.9, 14.8, 10.0, 8.5],
+          backgroundColor: ['#ef4444','#ef4444','#ef4444','#ef4444','#f59e0b','#00d68f','#00d68f','#00d68f'],
+          borderRadius: 6, borderSkipped: false }]
+      },
+      type: 'bar'
     },
     vendas: {
       title: '🛒 Análise de Vendas',
-      sub: 'Volume de vendas mensais e tendência de demanda',
-      kpis: [
-        { val: '+18%', label: 'Crescimento Anual' },
-        { val: 'Q4', label: 'Pico de Demanda' },
-        { val: '6', label: 'Categorias de Produto' }
-      ],
+      sub: 'Faturamento mensal (R$ mil)',
+      kpis: [{ val: 'R$ 71K', label: 'Faturamento Total' }, { val: 'R$ 30K', label: 'Lucro Líquido' }, { val: '42%', label: 'Margem' }],
       data: {
-        labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+        labels: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
         datasets: [
-          {
-            label: 'Vendas (unid.)',
-            data: [320, 290, 410, 380, 460, 430, 490, 520, 480, 610, 720, 850],
-            backgroundColor: 'rgba(0,214,143,0.7)',
-            borderRadius: 5,
-            borderSkipped: false,
-          }
+          { label: 'Faturamento (R$)', data: [4200,3800,5100,4700,5800,5300,6100,6400,5900,7200,8500,9800], backgroundColor: 'rgba(0,214,143,0.7)', borderRadius: 5 },
+          { label: 'Lucro (R$)', data: [1700,1500,2100,1900,2400,2200,2600,2700,2500,3000,3600,4100], backgroundColor: 'rgba(59,139,255,0.6)', borderRadius: 5 }
         ]
-      }
+      },
+      type: 'bar'
     },
-    portfolio: {
-      title: '🔍 Portfólio de Análise de Dados',
-      sub: 'KPIs estratégicos por segmento de negócio',
-      kpis: [
-        { val: '4', label: 'Projetos Integrados' },
-        { val: '98%', label: 'Acurácia dos Dados' },
-        { val: '15+', label: 'KPIs Desenvolvidos' }
-      ],
+    estoque: {
+      title: '📦 Análise de Estoque',
+      sub: 'Lucro vs Custo por categoria (R$ mil)',
+      kpis: [{ val: 'R$ 248K', label: 'Receita Total' }, { val: '34,2%', label: 'Margem Média' }, { val: '12', label: 'Categorias' }],
       data: {
-        labels: ['Vendas', 'Estoque', 'Financeiro', 'Logística', 'RH'],
+        labels: ['Eletrônicos','Vestuário','Alimentos','Móveis','Cosméticos','Ferramentas'],
         datasets: [
-          {
-            label: 'Score de Performance',
-            data: [87, 92, 78, 83, 71],
-            backgroundColor: [
-              'rgba(0,214,143,0.75)',
-              'rgba(59,139,255,0.75)',
-              'rgba(167,139,250,0.75)',
-              'rgba(0,214,143,0.5)',
-              'rgba(59,139,255,0.5)',
-            ],
-            borderRadius: 6,
-            borderSkipped: false,
-          }
+          { label: 'Lucro (R$ mil)', data: [42,28,19,35,23,16], backgroundColor: 'rgba(0,214,143,0.75)', borderRadius: 6 },
+          { label: 'Custo (R$ mil)', data: [31,22,14,28,17,12], backgroundColor: 'rgba(59,139,255,0.55)', borderRadius: 6 }
         ]
-      }
+      },
+      type: 'bar'
     }
   };
 
@@ -617,30 +558,19 @@
     const p = projects[key];
     document.getElementById('modalTitle').textContent = p.title;
     document.getElementById('modalSub').textContent = p.sub;
-
-    // KPIs
     document.getElementById('modalKpis').innerHTML = p.kpis.map(k =>
-      `<div class="modal-kpi"><div class="modal-kpi-val">${k.val}</div><div class="modal-kpi-label">${k.label}</div></div>`
+      '<div class="modal-kpi"><div class="modal-kpi-val">'+k.val+'</div><div class="modal-kpi-label">'+k.label+'</div></div>'
     ).join('');
-
-    // Destroy previous chart
     if (activeChart) activeChart.destroy();
-
     const ctx = document.getElementById('modalChart').getContext('2d');
     activeChart = new Chart(ctx, {
-      type: 'bar',
+      type: p.type,
       data: p.data,
       options: {
         responsive: true,
         plugins: {
           legend: { labels: { color: '#7a7a8a', boxRadius: 4 } },
-          tooltip: {
-            backgroundColor: '#18181c',
-            borderColor: 'rgba(255,255,255,0.07)',
-            borderWidth: 1,
-            titleColor: '#f0f0f0',
-            bodyColor: '#7a7a8a',
-          }
+          tooltip: { backgroundColor: '#18181c', borderColor: 'rgba(255,255,255,0.07)', borderWidth: 1, titleColor: '#f0f0f0', bodyColor: '#7a7a8a' }
         },
         scales: {
           x: { grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: '#7a7a8a' } },
@@ -648,7 +578,6 @@
         }
       }
     });
-
     document.getElementById('modalOverlay').classList.add('active');
     document.body.style.overflow = 'hidden';
   }
